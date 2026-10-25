@@ -190,7 +190,7 @@ class Easyrec(RobertaPreTrainedModel):
         )
         
         # MLM auxiliary objective
-        do_mlm = getattr(getattr(self, "model_args", None), "do_mlm", False)
+        do_mlm = self.model_args.do_mlm
         mlm_outputs = None
         if do_mlm and mlm_input_ids is not None:
             mlm_outputs = self.roberta(
